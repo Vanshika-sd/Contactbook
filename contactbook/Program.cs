@@ -4,7 +4,8 @@ using Microsoft.Extensions.Configuration;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.WebHost.CaptureStartupErrors(true);
+builder.WebHost.UseSetting("detailedErrors", "true");
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySQL("server=sql8.freesqldatabase.com;database=sql8789139;user=sql8789139;password=sJAn4aDAPe;port=3306"));
@@ -22,7 +23,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseRouting();
-
+app.UseDeveloperExceptionPage();
 app.UseAuthorization();
 
 app.MapStaticAssets();
