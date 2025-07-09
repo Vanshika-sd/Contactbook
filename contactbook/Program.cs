@@ -4,11 +4,12 @@ using Microsoft.Extensions.Configuration;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.WebHost.CaptureStartupErrors(true);
-builder.WebHost.UseSetting("detailedErrors", "true");
+builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySQL("server=sql8.freesqldatabase.com;database=sql8789139;user=sql8789139;password=sJAn4aDAPe;port=3306"));
+
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
