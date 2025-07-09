@@ -1,0 +1,23 @@
+@model List<Contact>
+@{
+    ViewData["Title"] = "All Contacts";
+}
+<h2>Contacts</h2>
+<a href="/Contacts/Create">Add New Contact</a>
+<table>
+    <tr><th>Name</th><th>Email</th><th>Phone</th><th>Actions</th></tr>
+@foreach (var contact in Model)
+{
+    <tr>
+        <td>@contact.Name</td>
+        <td>@contact.Email</td>
+        <td>@contact.Phone</td>
+        <td>
+            <a href="/Contacts/Edit/@contact.Id">Edit</a>
+            <form asp-action="Delete" asp-route-id="@contact.Id" method="post" style="display:inline">
+                <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+            </form>
+        </td>
+    </tr>
+}
+</table>

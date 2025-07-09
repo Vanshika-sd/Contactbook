@@ -1,0 +1,8 @@
+@model Contact
+<h2>Add Contact</h2>
+<form asp-action="Create" method="post">
+    <input asp-for="Name" placeholder="Name" /><br />
+    <input asp-for="Email" placeholder="Email" /><br />
+    <input asp-for="Phone" placeholder="Phone" /><br />
+    <button type="submit">Add</button>
+</form>
