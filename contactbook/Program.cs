@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseMySQL("server=localhost;database=cb;user=root;password=;port=3306"));
+    options.UseMySQL("server=sql8.freesqldatabase.com;database=sql8789139;user=sql8789139;password=sJAn4aDAPe;port=3306"));
 
 var app = builder.Build();
 
